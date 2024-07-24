@@ -9,11 +9,13 @@ from flask_caching import Cache
 import redis
 from flask_migrate import Migrate
 
+
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey')
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB max file size
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///diabetic_retinopathy.db')
+# Use PostgreSQL for Render deployment
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///Diabetic_Retinopathy.db')
 app.config['CACHE_TYPE'] = 'RedisCache'
 app.config['CACHE_REDIS_URL'] = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 
@@ -82,7 +84,8 @@ def upload_file():
             prediction = np.argmax(prediction, axis=1)[0]
             cache.set(prediction_cache_key, (prediction, confidence), timeout=3600)  # Cache for 1 hour
 
-        user_id = 1  # Adjust based on your authentication system.
+        # Assuming user_id=1 for simplicity. Adjust based on your authentication system.
+        user_id = 1
         new_image = Image(user_id=user_id, image_path=file_path)
         db.session.add(new_image)
         db.session.commit()
@@ -96,4 +99,3 @@ def upload_file():
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
-
