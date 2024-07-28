@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Image{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Upload Fundus Image</h1>
+</header>
+<main>
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+    {% if prediction and confidence %}
+    <div id="prediction-result">
+        <h2>Prediction Result</h2>
+        <p>Prediction: {{ prediction }}</p>
+        <p>Confidence: {{ confidence }}</p>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}
+
+<script>
+    document.getElementById('upload-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('prediction-result').style.display = 'block';
+            document.getElementById('prediction-result').innerHTML = `<h2>Prediction Result</h2>
+                <p>Prediction: ${data.prediction}</p>
+                <p>Confidence: ${data.confidence}</p>`;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>

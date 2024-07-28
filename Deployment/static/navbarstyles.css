@@ -1,0 +1,246 @@
+/* Style for the body to use flexbox */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0; 
+    width: 100%;
+    height: 100vh;
+    font-family: Tahoma;
+    margin: 0;
+    background-color: #1b1b32;
+    color: rgb(208, 228, 245);
+    font-size: 16px;
+}
+
+/* Style for the header and navigation bar */
+header {
+    background-color: #007BFF; /* Blue color for the header */
+    color: white; /* Text color */
+    padding: 10px 0; /* Padding around the text */
+    text-align: center; /* Center align the text */
+    width: 100%; /* Full width */
+}
+
+header h1 {
+    margin: 0; /* Remove margin */
+    font-size: 24px; /* Font size for the title */
+}
+
+nav {
+    margin-top: 10px; /* Space below the header */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for the list */
+    justify-content: center; /* Center the list items */
+}
+
+nav ul li {
+    margin: 0 10px; /* Space between links */
+}
+
+nav ul li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold font */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Style for the main content area */
+main {
+    flex: 1;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+footer {
+    padding: 10px 0; 
+    text-align: center;
+    width: 100%; 
+}
+
+/* Style for the form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Limit form width */
+    padding: 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    font-size: 1.1em;
+}
+
+fieldset {
+    border: none; 
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 3px solid #3b3b4f;
+    padding: 2em 0px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Space between labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"] {
+    padding: 10px; /* Padding inside inputs */
+    font-size: 16px; /* Input text size */
+    margin-top: 5px; /* Space above inputs */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+input[type="submit"] {
+    padding: 10px 20px; /* Padding inside button */
+    font-size: 16px; /* Button text size */
+    color: #fff; /* White text */
+    background-color: #007BFF; /* Blue background */
+    border: none; /* Remove border */
+    border-radius: 5px; 
+    cursor: pointer; /
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+
+a {
+    color: rgb(208, 228, 245);
+}
+
+h1,
+h2,
+p {
+    margin: 1em auto;
+    text-align: center;
+}
+
+
+fieldset:last-of-type {
+    border-bottom: none;
+}
+
+.inline {
+    width: unset;
+    vertical-align: middle;
+    margin: 0 0.5em 0 0;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    min-height: 2em;
+}
+
+input,
+textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+}
+
+select {
+    color: #0a0a23;
+}
+
+input[type="Submit"] {
+    width: 60%;
+    margin: 1em auto;
+    display: block;
+    max-width: 300px;
+    background-color: #8484ab;
+    opacity: 80%;
+    font-size: 1.1em;
+    border: 2px solid aliceblue;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    padding: 1px 2px;
+    vertical-align: middle;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+
+}
+
+footer .contact-us {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+footer .contact-us h3 {
+    margin-bottom: 10px;
+    color: #333; 
+}
+
+footer #contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+footer #contact-form label {
+    margin-bottom: 5px;
+    color: #333; /* Ensure label text is visible */
+}
+
+footer #contact-form input,
+footer #contact-form textarea {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer #contact-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer #contact-form button:hover {
+    background-color: #0056b3;
+}
+
+footer p {
+    margin-top: 10px;
+    color: #333; /* Ensure contact text is visible */
+}
+
+footer a {
+    color: #007BFF; /* Ensure link text is visible */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
